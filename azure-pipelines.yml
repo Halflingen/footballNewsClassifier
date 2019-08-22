@@ -42,6 +42,10 @@ steps:
     #pip install unittest-xml-reporting
   displayName: 'Install prerequisites'
 
+- task: DockerInstaller@0
+  inputs:
+    dockerVersion: '17.09.0-ce'
+
 - script: |
     pushd '$(projectRoot)'
     python manage.py test --testrunner xmlrunner.extra.djangotestrunner.XMLTestRunner --no-input
